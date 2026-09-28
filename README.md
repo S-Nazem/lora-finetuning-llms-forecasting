@@ -16,24 +16,23 @@ Our results demonstrate that with efficient fine-tuning and thoughtful hyperpara
 
 ---
 
-# 📄 Read the Full Report
+## Full Report
 
-**[Click here to view the PDF](Report.pdf)**
+[Read the report (PDF)](Report.pdf)
 
 ---
 
 ## Repository Structure
 
 ```plaintext
-M2_STUFF/
+lora-finetuning-llms-forecasting/
 ├── csv/                         # Exported data or intermediate CSVs
 ├── notebooks/                   # Clean Jupyter notebooks for results/analysis
 ├── plots/                       # Output plots and figures for forecasts/results
-├── sn665/                       # (Optional) user-specific or submission directory
 ├── src/                         # Python source code
-├── Development.ipynb            # Very rough dev workflow (kept for interest)
+├── Development.ipynb            # Exploratory development notebook
 ├── lora_skeleton.py             # Training script extended with LoRA
-├── lotka_volterra_data.h5       # Provided predator-prey dataset
+├── lotka_volterra_data.h5        # Provided predator-prey dataset
 │
 ├── llmtime.pdf                  # LLMTIME paper reference
 ├── qwen.pdf                     # Qwen2.5 architecture report
@@ -68,7 +67,7 @@ All preprocessing, training, forecasting, evaluation, and plotting are performed
 
 3. Notebook Workflow
 
-Run the notebooks in the following order to fully reproduce the project pipeline:
+Use the notebooks below to explore the training and evaluation stages. Check their configured data and model paths before running; forecasting and evaluation require the relevant trained model.
 
 | Notebook                      | Purpose                                                                 |
 |------------------------------|-------------------------------------------------------------------------|
@@ -80,16 +79,12 @@ Run the notebooks in the following order to fully reproduce the project pipeline
 | `PerformanceMetrics.ipynb`   | Evaluation of the final model using MSE, R², DTW, and correlation        |
 
 
-
 4. Outputs
 
 - Forecast visualizations are saved to plots/
-
 - Performance metrics and results are logged within each notebook
 
 - FLOPs estimates for all runs are included per the coursework spec
-
-
 
 
 --- 
@@ -101,35 +96,25 @@ From our final model (LoRA rank = 8, LR = 1e-4, context = 256):
 
 
 - Median R²: > 0.85 across 10 evaluation systems
-
 - Total FLOPs: 6.86×10¹⁶ (within coursework constraint of 1×10¹⁷)
 
-    - Metrics:
-
-    - MSE: as low as 0.0052
-
-    - Pearson correlation: up to 0.99
-
-    - DTW: < 1.0 for most systems
-
+- MSE: as low as 0.0052
+- Pearson correlation: up to 0.99
+- DTW: < 1.0 for most systems
 
 
 --- 
 
-## Feautures
+## Features
 
 - LoRA adaptation for efficient model fine-tuning
-
 - FLOPs tracking & compute budgeting per experiment
 
 - Reproducible training pipeline using HuggingFace
-
 - Token-level time series modeling with LLMTIME
 
 - Metrics & plots for rigorous forecast evaluation
-
 - Modular folder structure with src/, plots/, notebooks/
-
 
 
 ---
@@ -143,6 +128,5 @@ This repository is part of a university coursework submission and is not intende
 
 ## Use of Generative AI
 
-- I used Github's Copilot to help me automatically finish off some code blocks and also to quickly docstring my functions.
-
-- I used LLMs (ChatGPT) to help me create professional looking plots and occasionally to help me debug errors when i implemented something incorrectly.
+- I used GitHub's Copilot to help me automatically finish off some code blocks and also to quickly docstring my functions.
+- I used LLMs (ChatGPT) to help me create professional looking plots and occasionally to help me debug errors when I implemented something incorrectly.
